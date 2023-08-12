@@ -9,9 +9,14 @@
 ### Requirements
 ```txt
 python == 3.6.9
-
+pytorch
 ```
 
+### Installation
+
+```bash
+pip install git+https://github.com/michelecafagna26/vl-shap.git#egg=semshap
+```
 
 ### Quick start
 

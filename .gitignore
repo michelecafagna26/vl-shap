@@ -149,4 +149,4 @@ test
 *.ipynb
 
 # models
-semshap/stego/model/*
+/semshap/stego/model/*
