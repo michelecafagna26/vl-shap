@@ -10,6 +10,7 @@
 ```txt
 python == 3.6.9
 pytorch
+torchvision
 ```
 
 ### Installation
