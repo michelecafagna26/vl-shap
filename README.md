@@ -1,12 +1,13 @@
 # VL-SHAP
 *Official Repo for the paper: ["Interpreting Vision and Language Generative Models with Semantic Visual Priors"](https://arxiv.org/abs/2304.14986).*
 
-- **🗃️ Repository:** [github.com/michelecafagna26/HL-dataset](https://github.com/michelecafagna26/vl-shap)
+- **🗃️ Repository:** [github.com/michelecafagna26/vl-shap](https://github.com/michelecafagna26/vl-shap)
 - **📜 Paper:** [Interpreting Vision and Language Generative Models with Semantic Visual Priors](https://arxiv.org/abs/2304.14986)
 - **🖊️ Contact:** michele.cafagna@um.edu.mt
 
 
 ### Requirements
+
 ```txt
 python == 3.6.9
 pytorch
