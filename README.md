@@ -55,7 +55,7 @@ import matplotlib.pyplot as plt
 
 ckpt_dir = "/path/to/the/model/ofa-models/OFA-large" # change this
 device = "cuda" if torch.cuda.is_available() else "cpu"
-img_url="http://farm8.staticflickr.com/7320/9284431797_c606b4596b_z.jpg"
+img_url="https://farm4.staticflickr.com/3663/3392599156_e94f7d1098_z.jpg"
 
 # load the model
 model = OFAModel.from_pretrained(ckpt_dir, use_cache=False).to(device)
@@ -133,7 +133,7 @@ We have everything we need to create and run the KernelSHAP explainer.
 explainer = BaseExplainer(model_wrapper, device=device)
 shap, base = explainer.explain(img, out['masks'], k=-1)
 ```
-We visualize the Shapley values corresponding to the visual features masks by running
+We visualize the Shapley values corresponding to the visual features masks as a barchart, by running
 
 ```python3
 labels = [ f"f_{i}" for i in range(shap.shape[0]) ]
@@ -145,6 +145,10 @@ and the visual explanation
 ```python3
 heatmap(img, out['masks'], shap, alpha=0.75)
 ```
+This will allow you to generate these sentence-based visual semantic explanations 
+<img align="center" width="950" height="350" 
+src="https://drive.google.com/uc?export=view&id=1HyxJ18wLKLEzMYg5fDpkBy3u88nS8-AG">
+
 
 
 ### Citation Information
