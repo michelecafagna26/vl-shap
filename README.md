@@ -21,8 +21,8 @@ pip install git+https://github.com/michelecafagna26/vl-shap.git#egg=semshap
 ```
 
 ### Overview
-<img src="https://drive.google.com/file/d/15kivtqVyD8DeL2ueL9qubOCKnEJXwWuA/view?usp=drive_link"
-     alt="vl-shap framework"/>
+<img align="center" width="950" height="350" 
+src="https://drive.google.com/uc?export=view&id=15kivtqVyD8DeL2ueL9qubOCKnEJXwWuA">
 
 ### Basic concepts
 
