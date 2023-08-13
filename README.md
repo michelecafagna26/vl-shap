@@ -126,6 +126,7 @@ Now we can generate a caption in this way
 ```python3
 question = "What is the subject doing?"
 model_wrapper = ModelWrapper(model, tokenizer, question, resolution=img.size, device=device)
+model_wrapper(img)
 ```
 
 We have everything we need to create and run the KernelSHAP explainer.
