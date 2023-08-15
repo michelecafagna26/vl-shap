@@ -1,6 +1,8 @@
 # VL-SHAP
 
+
 *Official Repo for the paper: ["Interpreting Vision and Language Generative Models with Semantic Visual Priors"](https://arxiv.org/abs/2304.14986).*
+
 ---
 Explain VL generative models using  **sentence-based** visual explanations, exploiting the model's **visual semantic priors** and **KernelSHAP**
 
