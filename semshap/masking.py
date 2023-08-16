@@ -2,9 +2,9 @@ import pickle
 from pathlib import Path
 from copy import copy
 
-import sys
-# from semshap.stego.crf import dense_crf
-# from semshap.stego.train_segmentation import LitUnsupervisedSegmenter
+# import sys
+from semshap.stego.crf import dense_crf
+from semshap.stego.train_segmentation import LitUnsupervisedSegmenter
 
 import torch
 import torch.nn.functional as F
@@ -166,9 +166,9 @@ def generate_superpixel_masks(img_size, grid_shape=(4, 4)):
 def generate_segmentation_masks(img, transform=None,
                                 method="cluster", model_path="./semshap/stego/model/cocostuff27_vit_base_5.ckpt"):
 
-    if "semshap.stego" not in sys.modules:
-            from semshap.stego.crf import dense_crf
-            from semshap.stego.train_segmentation import LitUnsupervisedSegmenter
+    # if "semshap.stego" not in sys.modules:
+    #         from semshap.stego.crf import dense_crf
+    #         from semshap.stego.train_segmentation import LitUnsupervisedSegmenter
 
 
     if not transform:
