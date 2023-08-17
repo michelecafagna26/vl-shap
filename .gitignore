@@ -146,8 +146,8 @@ test
 
 # notebooks
 
-*.ipynb
+/.ipynb:checkpoints
 
 # models
 /semshap/stego/model/*
-/OFA/*
+/OFA
