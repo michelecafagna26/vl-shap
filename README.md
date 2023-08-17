@@ -4,7 +4,7 @@
 *Official Repo for the paper: ["Interpreting Vision and Language Generative Models with Semantic Visual Priors"](https://arxiv.org/abs/2304.14986).*
 
 ---
-Explain VL generative models using  **KernelSHAP** **sentence-based** visual explanations, exploiting the model's **visual semantic priors** and 
+Explain VL generative models using  **KernelSHAP** **sentence-based** visual explanations, exploiting the model's **visual semantic priors**.
 
 <img align="center" width="950" height="350" 
 src="https://drive.google.com/uc?export=view&id=15kivtqVyD8DeL2ueL9qubOCKnEJXwWuA">
@@ -146,13 +146,23 @@ barh(labels, shap)
 and the visual explanation
 
 ```python3
-heatmap(img, out['masks'], shap, alpha=0.75)
+heatmap(img, out['heatmaps'], shap, alpha=0.65)
 ```
 This will allow you to plot these sentence-based visual semantic explanations.
 <img align="center" width="950" height="350" 
 src="https://drive.google.com/uc?export=view&id=1HyxJ18wLKLEzMYg5fDpkBy3u88nS8-AG">
 
+### More Examples:
 
+For more use cases check the notebooks:
+- [explain_ofa_dff.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_dff.ipynb) for running the example above, namely a **VL model with CNN-based visual-backbone**.
+- [explain_ofa_superpixel.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_superpixel.ipynb) for comparison with **superpixel**
+- [explain_gpt-vit-model_dff.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_gpt-vit-model_dff.ipynb) shows how to explain **VL models with ViT visual-backbone**.
+- [explain_ofa_stego.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_stego.ipynb) shows how to explain **any model** using semantic features extracted from an **external segmentation model** ([STEGO](https://github.com/mhamilton723/STEGO)).
+
+### Acknowledgement
+- The STEGO model has been adapted from the official [repo](https://github.com/mhamilton723/STEGO)
+- The KernelSHAP implementation is based on the official [SHAP](https://github.com/shap/shap) repo.
 
 ### Citation Information
 
