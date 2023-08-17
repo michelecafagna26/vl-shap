@@ -148,7 +148,7 @@ and the visual explanation
 ```python3
 heatmap(img, out['heatmaps'], shap, alpha=0.65)
 ```
-This will allow you to plot these **sentence-based visual semantic explanations**.
+In this way you can generate **sentence-based visual semantic explanations** like these.
 <img align="center" width="950" height="350" 
 src="https://drive.google.com/uc?export=view&id=1HyxJ18wLKLEzMYg5fDpkBy3u88nS8-AG">
 
