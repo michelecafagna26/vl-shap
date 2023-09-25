@@ -167,10 +167,14 @@ For more use cases check the notebooks:
 ### Citation Information
 
 ```BibTeX
-@article{cafagna2023interpreting,
-  title={Interpreting Vision and Language Generative Models with Semantic Visual Priors},
-  author={Cafagna, Michele and Rojas-Barahona, Lina M and van Deemter, Kees and Gatt, Albert},
-  journal={arXiv preprint arXiv:2304.14986},
-  year={2023}
+@ARTICLE{10.3389/frai.2023.1220476,
+ AUTHOR={Cafagna, Michele and Rojas-Barahona, Lina M. and van Deemter, Kees and Gatt, Albert},   
+ TITLE={Interpreting vision and language generative models with semantic visual priors},      
+ JOURNAL={Frontiers in Artificial Intelligence},      
+ VOLUME={6},           
+ YEAR={2023},      
+ URL={https://www.frontiersin.org/articles/10.3389/frai.2023.1220476},       
+ DOI={10.3389/frai.2023.1220476},      
+ ISSN={2624-8212},   
 }
 ```
