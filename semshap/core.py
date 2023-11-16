@@ -2,6 +2,7 @@ import random
 import itertools
 import scipy
 
+
 def bouncing_range(n):
     """
     Generate a list of int form 0-n with alternate indexes. Ex: 0, n, 1, n-1, 2, n-2, ...
@@ -46,5 +47,3 @@ def shapley_kernel(M, s):
     if s == 0 or s == M:
         return 10000
     return (M - 1) / (scipy.special.binom(M, s) * s * (M - s))
-
-

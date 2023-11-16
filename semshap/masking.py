@@ -30,7 +30,7 @@ def apply_mask(image, masks):
     if not isinstance(masks, list):
         raise ValueError(f"'masks' is expected to be a list, not  {type(masks)}")
     if len(masks) == 0:
-        raise ValueError(f"masks cannot be an empty list")
+        raise ValueError("masks cannot be an empty list")
 
     mask = copy(masks[0])
     if len(masks) > 1:
@@ -165,11 +165,9 @@ def generate_superpixel_masks(img_size, grid_shape=(4, 4)):
 
 def generate_segmentation_masks(img, transform=None,
                                 method="cluster", model_path="./semshap/stego/model/cocostuff27_vit_base_5.ckpt"):
-
     # if "semshap.stego" not in sys.modules:
     #         from semshap.stego.crf import dense_crf
     #         from semshap.stego.train_segmentation import LitUnsupervisedSegmenter
-
 
     if not transform:
         resize_transform = transforms.Compose([
@@ -230,7 +228,7 @@ def genenerate_vit_masks(visual_embeds, img_size, k=10, mask_th=150, random_stat
 
     # compute the feature index in the grid
     def extract_feature_idx(masks):
-        return {idx: np.where(m[0, :] == True)[0].tolist() for idx, m in enumerate(masks)}
+        return {idx: np.where(m[0, :] is True)[0].tolist() for idx, m in enumerate(masks)}
 
     # add together a set of masks
     def compose_mask(masks):
@@ -250,7 +248,7 @@ def genenerate_vit_masks(visual_embeds, img_size, k=10, mask_th=150, random_stat
     visual_embeds_norm = scaler.fit_transform(visual_embeds)
 
     dff_out = generate_dff_masks(torch.tensor(visual_embeds_norm).unsqueeze(0), k=k, return_heatmaps=return_heatmaps,
-                            img_size=resolution, mask_th=mask_th, random_state=random_state)
+                                 img_size=resolution, mask_th=mask_th, random_state=random_state)
 
     feature_set = extract_feature_idx(dff_out['masks'])
 
