@@ -6,8 +6,8 @@
 ---
 Explain VL generative models using  **KernelSHAP** **sentence-based** visual explanations, exploiting the model's **visual semantic priors**.
 
-<img align="center" width="950" height="350" 
-src="https://drive.google.com/uc?export=view&id=15kivtqVyD8DeL2ueL9qubOCKnEJXwWuA">
+<img align="center" width="900" height="350" 
+src="https://www.frontiersin.org/files/Articles/1220476/frai-06-1220476-HTML/image_m/frai-06-1220476-g003.jpg">
 
 ### Overview
  
