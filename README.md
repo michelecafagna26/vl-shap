@@ -28,6 +28,10 @@ torchvision <=0.14
 ### Installation
 
 ```bash
+pip install git+https://github.com/lucasb-eyer/pydensecrf.git
+```
+
+```bash
 pip install git+https://github.com/michelecafagna26/vl-shap.git#egg=semshap
 ```
 

@@ -13,4 +13,3 @@ matplotlib==3.8.1
 wget==3.2
 pytorch_lightning==1.8.3
 protobuf==3.20.0
-pydensecrf=1.0
