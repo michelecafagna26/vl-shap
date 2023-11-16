@@ -1,4 +1,4 @@
-Cython==3.0
+Cython==3.0.0
 numpy==1.23.5
 sentence-transformers==2.2.2
 scikit-image==0.17.2
@@ -7,9 +7,10 @@ Pillow==10.1
 tqdm>=4.59
 torchmetrics==0.8.2
 tensorboard==2.4.0
-hydra-core
-seaborn
-matplotlib
-wget
+hydra-core==1.0.7
+seaborn==0.13.0
+matplotlib==3.8.1
+wget==3.2
 pytorch_lightning==1.8.3
-protobuf
+protobuf==3.20.0
+pydensecrf=1.0

@@ -20,9 +20,9 @@ src="https://drive.google.com/uc?export=view&id=15kivtqVyD8DeL2ueL9qubOCKnEJXwWu
 ### Requirements
 
 ```txt
-python == 3.6.9
-pytorch
-torchvision
+3.6.9<= python <= 3.10.12
+pytorch <= 1.13
+torchvision <=0.14
 ```
 
 ### Installation
