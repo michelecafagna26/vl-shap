@@ -33,7 +33,7 @@ pip install git+https://github.com/michelecafagna26/vl-shap.git#egg=semshap
 
 ### Example: Explain OFA Visual Question Answering Model
 
-Install OFA from the [official repo](https://github.com/OFA-Sys/OFA)
+Install OFA from the [official repo](hhttps://github.com/OFA-Sys/OFA/blob/feature/add_transformers/transformers.md)
 Then run the following code to **extract semantic masks**
 
 ```python3
@@ -159,6 +159,14 @@ For more use cases check the notebooks:
 - [explain_ofa_superpixel.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_superpixel.ipynb) for comparison with **superpixel**
 - [explain_gpt-vit-model_dff.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_gpt-vit-model_dff.ipynb) shows how to explain **VL models with ViT visual-backbone**.
 - [explain_ofa_stego.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_stego.ipynb) shows how to explain **any model** using semantic features extracted from an **external segmentation model** ([STEGO](https://github.com/mhamilton723/STEGO)).
+
+### Troubleshooting
+In case of problems wiht the ```pydensecrf ```module try:
+
+```bash
+pip install cython
+pip install git+https://github.com/lucasb-eyer/pydensecrf.git
+```
 
 ### Acknowledgement
 - The STEGO model has been adapted from the official [repo](https://github.com/mhamilton723/STEGO)
