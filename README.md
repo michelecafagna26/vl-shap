@@ -20,8 +20,8 @@ src="https://www.frontiersin.org/files/Articles/1220476/frai-06-1220476-HTML/ima
 ### Requirements
 
 ```txt
-3.6.9<= python <= 3.10.12
-pytorch <= 1.13
+python <= 3.10
+pytorch <= 2.1
 torchvision <=0.14
 ```
 
