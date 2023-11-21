@@ -7,7 +7,7 @@ __pycache__/
 *.so
 
 # pytorch models
-*.pth
+./semshap/clipseg/model/*.pth
 
 #IDE
 .idea
