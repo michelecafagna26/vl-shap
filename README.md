@@ -16,12 +16,12 @@ src="https://www.frontiersin.org/files/Articles/1220476/frai-06-1220476-HTML/ima
 ### Note⚠️
 In this branch we generate semantic masks using **Clipseg** instead of **STEGO**, as originally presented in the paper.
 Stego has strict ```python``` and ```pytorch``` requirements that may be limiting for potential users.
-**Clipseg**  is easier to install and can be used with the most recent dependencies.
+**Clipseg**  is easier to install and can be used with the most recent dependencies. 
 
 With **Clipseg** is possible to control the semantic masks to use through textual prompts. This is not possible with STEGO which is unsupervised.
-However,  the grain of the masks generated with Clipseg is coarser, then STEGO.
+However,  the grain of the masks generated with Clipseg is coarser, then STEGO. Check the notebook: [explain_ofa_semantic_clipseg.ipynb](https://github.com/michelecafagna26/vl-shap/blob/adding_clipseg/explain_ofa_semantic_clipseg.ipynb)
 
-If you want to use the original  implementation presented in the paper with STEGO check out [this branch](https://github.com/michelecafagna26/vl-shap/tree/main)
+If you want to use the original  implementation presented in the paper with STEGO check out [this branch](https://github.com/michelecafagna26/vl-shap/tree/main).
 
 
 ### Requirements
