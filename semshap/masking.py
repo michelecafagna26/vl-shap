@@ -2,10 +2,6 @@ import pickle
 from pathlib import Path
 from copy import copy
 
-# import sys
-from semshap.stego.crf import dense_crf
-from semshap.stego.train_segmentation import LitUnsupervisedSegmenter
-
 import torch
 import torch.nn.functional as F
 import numpy as np
@@ -163,52 +159,52 @@ def generate_superpixel_masks(img_size, grid_shape=(4, 4)):
     }
 
 
-def generate_segmentation_masks(img, transform=None,
-                                method="cluster", model_path="./semshap/stego/model/cocostuff27_vit_base_5.ckpt"):
-
-    if not transform:
-        resize_transform = transforms.Compose([
-            lambda image: image.convert("RGB"),
-            transforms.Resize((img.size[1], img.size[0]), interpolation=Image.BICUBIC),
-            transforms.ToTensor(),
-        ])
-    else:
-        resize_transform = transform
-
-    if method not in {"cluster", "probe"}:
-        raise ValueError(f"{method} is not a valid 'method'. Valid 'method' are ['cluster', 'probe']")
-
-    model = LitUnsupervisedSegmenter.load_from_checkpoint(model_path).cuda()
-    img = resize_transform(img).unsqueeze(0).cuda()
-
-    with torch.no_grad():
-        code1 = model(img)
-        code2 = model(img.flip(dims=[3]))
-        code = (code1 + code2.flip(dims=[3])) / 2
-        code = F.interpolate(code, img.shape[-2:], mode='bilinear', align_corners=False)
-
-        single_img = img[0].cpu()
-        if method == "cluster":
-            cluster_probs = model.cluster_probe(code, 2, log_probs=True).cpu()
-            pred = dense_crf(single_img, cluster_probs[0]).argmax(0)
-        else:
-            linear_probs = torch.log_softmax(model.linear_probe(code), dim=1).cpu()
-            pred = dense_crf(single_img, linear_probs[0]).argmax(0)
-
-    seg_labels = np.unique(pred)
-    th = 0.01
-
-    tot_size = pred.shape[0] * pred.shape[1]
-    masks = []
-    for label in seg_labels:
-        mask = (pred == label).astype(np.bool_)
-
-        if np.count_nonzero(mask) / tot_size > th:
-            masks.append(mask)
-
-    return {
-        "masks": masks
-    }
+# def generate_segmentation_masks(img, transform=None,
+#                                 method="cluster", model_path="./semshap/stego/model/cocostuff27_vit_base_5.ckpt"):
+#
+#     if not transform:
+#         resize_transform = transforms.Compose([
+#             lambda image: image.convert("RGB"),
+#             transforms.Resize((img.size[1], img.size[0]), interpolation=Image.BICUBIC),
+#             transforms.ToTensor(),
+#         ])
+#     else:
+#         resize_transform = transform
+#
+#     if method not in {"cluster", "probe"}:
+#         raise ValueError(f"{method} is not a valid 'method'. Valid 'method' are ['cluster', 'probe']")
+#
+#     model = LitUnsupervisedSegmenter.load_from_checkpoint(model_path).cuda()
+#     img = resize_transform(img).unsqueeze(0).cuda()
+#
+#     with torch.no_grad():
+#         code1 = model(img)
+#         code2 = model(img.flip(dims=[3]))
+#         code = (code1 + code2.flip(dims=[3])) / 2
+#         code = F.interpolate(code, img.shape[-2:], mode='bilinear', align_corners=False)
+#
+#         single_img = img[0].cpu()
+#         if method == "cluster":
+#             cluster_probs = model.cluster_probe(code, 2, log_probs=True).cpu()
+#             pred = dense_crf(single_img, cluster_probs[0]).argmax(0)
+#         else:
+#             linear_probs = torch.log_softmax(model.linear_probe(code), dim=1).cpu()
+#             pred = dense_crf(single_img, linear_probs[0]).argmax(0)
+#
+#     seg_labels = np.unique(pred)
+#     th = 0.01
+#
+#     tot_size = pred.shape[0] * pred.shape[1]
+#     masks = []
+#     for label in seg_labels:
+#         mask = (pred == label).astype(np.bool_)
+#
+#         if np.count_nonzero(mask) / tot_size > th:
+#             masks.append(mask)
+#
+#     return {
+#         "masks": masks
+#     }
 
 
 def genenerate_vit_masks(visual_embeds, img_size, k=10, mask_th=150, random_state=0,

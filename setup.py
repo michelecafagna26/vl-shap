@@ -18,7 +18,7 @@ setuptools.setup(
     name="semshap",
     version="0.0.1",
     author="Michele Cafagna",
-    author_email = "michele.cafagna@um.edu.mt",
+    author_email="michele.cafagna@um.edu.mt",
     description="Explain VL generative models using sentence-based explanation and visual semantic priors.",
     long_description=long_description,
     long_description_content_type="text/markdown",
