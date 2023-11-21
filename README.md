@@ -37,7 +37,7 @@ pip install git+https://github.com/michelecafagna26/vl-shap.git#egg=semshap
 
 ### Example: Explain OFA Visual Question Answering Model
 
-Install OFA from the [official repo](hhttps://github.com/OFA-Sys/OFA/blob/feature/add_transformers/transformers.md)
+Install OFA from the [official repo](https://github.com/OFA-Sys/OFA/blob/feature/add_transformers/transformers.md)
 Then run the following code to **extract semantic masks**
 
 ```python3
