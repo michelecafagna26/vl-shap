@@ -27,12 +27,21 @@ torchvision <=0.14
 
 ### Installation
 
+We need to install Clipseg's depenency to generate prompt-based semantic masks:
 ```bash
-pip install git+https://github.com/lucasb-eyer/pydensecrf.git
+pip install git+https://github.com/openai/CLIP.git
 ```
 
 ```bash
 pip install git+https://github.com/michelecafagna26/vl-shap.git#egg=semshap
+```
+
+### Download external model
+
+save the model in the ```semshap/clipseg/model``` folder
+```bash
+wget https://owncloud.gwdg.de/index.php/s/ioHbRzFx6th32hn/download -O weights.zip
+unzip -d  -j weights.zip
 ```
 
 ### Example: Explain OFA Visual Question Answering Model
@@ -162,18 +171,11 @@ For more use cases check the notebooks:
 - [explain_ofa_dff.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_dff.ipynb) for running the example above, namely a **VL model with CNN-based visual-backbone**.
 - [explain_ofa_superpixel.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_superpixel.ipynb) for comparison with **superpixel**
 - [explain_gpt-vit-model_dff.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_gpt-vit-model_dff.ipynb) shows how to explain **VL models with ViT visual-backbone**.
-- [explain_ofa_stego.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_stego.ipynb) shows how to explain **any model** using semantic features extracted from an **external segmentation model** ([STEGO](https://github.com/mhamilton723/STEGO)).
+- [explain_ofa_.semantic_clipseg.ipynb](https://github.com/michelecafagna26/vl-shap/blob/main/explain_ofa_stego.ipynb) shows how to explain **any model** using semantic features extracted from an **external segmentation model** ([ClipSeg](https://github.com/timojl/clipseg)).
 
-### Troubleshooting
-In case of problems wiht the ```pydensecrf ```module try:
-
-```bash
-pip install cython
-pip install git+https://github.com/lucasb-eyer/pydensecrf.git
-```
 
 ### Acknowledgement
-- The STEGO model has been adapted from the official [repo](https://github.com/mhamilton723/STEGO)
+- The Clipseg model has been adapted from the official [repo](https://github.com/mhamilton723/STEGO)
 - The KernelSHAP implementation is based on the official [SHAP](https://github.com/shap/shap) repo.
 
 ### Citation Information
