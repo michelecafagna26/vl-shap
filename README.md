@@ -16,6 +16,8 @@ src="https://www.frontiersin.org/files/Articles/1220476/frai-06-1220476-HTML/ima
 - **📜 Paper:** [Interpreting Vision and Language Generative Models with Semantic Visual Priors](https://arxiv.org/abs/2304.14986)
 - **🖊️ Contact:** michele.cafagna@um.edu.mt
 
+### UPDATES 🔥
+- **21/11/2023** **If you have trouble installing STEGO**, you can check out this branch [vl-shap/adding_clipseg](https://github.com/michelecafagna26/vl-shap/tree/adding_clipseg). Here we replace the STEGO model with [**Clipseg**](https://github.com/timojl/clipseg) semantic segmentation model. Clipseg is compatible with the latest python and pytorch library and is easier to install. Moreover, you can control the semantic masks by through textual prompts!🚀
 
 ### Requirements
 
