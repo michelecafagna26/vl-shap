@@ -153,8 +153,8 @@ and the visual explanation
 heatmap(img, out['heatmaps'], shap, alpha=0.65)
 ```
 In this way you can generate **sentence-based visual semantic explanations** like these.
-<img align="center" width="950" height="350" 
-src="https://drive.google.com/uc?export=view&id=1HyxJ18wLKLEzMYg5fDpkBy3u88nS8-AG">
+<img align="center" width="750" height="350" 
+src="https://www.frontiersin.org/files/Articles/1220476/frai-06-1220476-HTML/image_m/frai-06-1220476-g007.jpg">
 
 ### More Examples:
 
