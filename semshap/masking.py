@@ -161,7 +161,7 @@ def generate_superpixel_masks(img_size, grid_shape=(4, 4)):
 
 
 def generate_segmentation_masks(img, prompts, img_size=(256, 256), mask_th=100,
-                           return_heatmaps=False):
+                           return_heatmaps=False, model_path='./semshap/clipseg/model/rd64-uni.pth', device=None):
     """
     Inputs:
         img: torch.Tensor with shape (kernel_h, kernel_w, embed_dim)
@@ -169,18 +169,20 @@ def generate_segmentation_masks(img, prompts, img_size=(256, 256), mask_th=100,
         img_size: tuple-like object [int, int], (width, height)
         mask_th: int, threshold to generate the binary masks, default 20
         return_heatmaps: bool, if True the heatmaps are returned,default False
-        reverse_resolution: bool, if True, we assume that the resolution is given (width, height), this is the default
-                            behaviour of PIL.Image
+        model_path: string, path to the model, default: ./semshap/clipseg/model/rd64-uni.pth'
+        device: string "cpu" or "cuda", if None it will be assigned will be assigned with the following order: "cuda", "cpu"
 
     Return:
         Dict-like object: { "masks": List[numpy.array] , "heatmaps": List[numpy.array] if return_heatmaps is True}
     """
 
-    device = "cuda" if torch.cuda.is_available() == True else "cpu"
+    if not device:
+        device = "cuda" if torch.cuda.is_available() == True else "cpu"
+
     # load model
     model = CLIPDensePredT(version='ViT-B/16', reduce_dim=64)
     model.eval()
-    model.load_state_dict(torch.load('./semshap/clipseg/model/rd64-uni.pth', map_location=torch.device(device)),
+    model.load_state_dict(torch.load(model_path, map_location=torch.device(device)),
                           strict=False)
 
     # load and preprocess the image
@@ -234,55 +236,6 @@ def generate_segmentation_masks(img, prompts, img_size=(256, 256), mask_th=100,
         out['heatmaps'] = heatmaps
 
     return out
-
-
-# DEPRECATED: going to be removed
-# def generate_segmentation_masks(img, transform=None,
-#                                 method="cluster", model_path="./semshap/stego/model/cocostuff27_vit_base_5.ckpt"):
-#
-#     if not transform:
-#         resize_transform = transforms.Compose([
-#             lambda image: image.convert("RGB"),
-#             transforms.Resize((img.size[1], img.size[0]), interpolation=Image.BICUBIC),
-#             transforms.ToTensor(),
-#         ])
-#     else:
-#         resize_transform = transform
-#
-#     if method not in {"cluster", "probe"}:
-#         raise ValueError(f"{method} is not a valid 'method'. Valid 'method' are ['cluster', 'probe']")
-#
-#     model = LitUnsupervisedSegmenter.load_from_checkpoint(model_path).cuda()
-#     img = resize_transform(img).unsqueeze(0).cuda()
-#
-#     with torch.no_grad():
-#         code1 = model(img)
-#         code2 = model(img.flip(dims=[3]))
-#         code = (code1 + code2.flip(dims=[3])) / 2
-#         code = F.interpolate(code, img.shape[-2:], mode='bilinear', align_corners=False)
-#
-#         single_img = img[0].cpu()
-#         if method == "cluster":
-#             cluster_probs = model.cluster_probe(code, 2, log_probs=True).cpu()
-#             pred = dense_crf(single_img, cluster_probs[0]).argmax(0)
-#         else:
-#             linear_probs = torch.log_softmax(model.linear_probe(code), dim=1).cpu()
-#             pred = dense_crf(single_img, linear_probs[0]).argmax(0)
-#
-#     seg_labels = np.unique(pred)
-#     th = 0.01
-#
-#     tot_size = pred.shape[0] * pred.shape[1]
-#     masks = []
-#     for label in seg_labels:
-#         mask = (pred == label).astype(np.bool_)
-#
-#         if np.count_nonzero(mask) / tot_size > th:
-#             masks.append(mask)
-#
-#     return {
-#         "masks": masks
-#     }
 
 
 def genenerate_vit_masks(visual_embeds, img_size, k=10, mask_th=150, random_state=0,

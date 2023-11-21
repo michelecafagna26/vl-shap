@@ -38,10 +38,12 @@ pip install git+https://github.com/michelecafagna26/vl-shap.git@adding_clipseg#e
 
 ### Download external model
 
-save the model in the ```semshap/clipseg/model``` folder
+save the models in the ```semshap/clipseg/model``` folder or pass the path to the model to the ```generate_segmentation_masks```
+method setting ```model_path=path/to/model```
+
 ```bash
 wget https://owncloud.gwdg.de/index.php/s/ioHbRzFx6th32hn/download -O weights.zip
-unzip -d  -j weights.zip
+unzip -d . -j weights.zip
 ```
 
 ### Example: Explain OFA Visual Question Answering Model
