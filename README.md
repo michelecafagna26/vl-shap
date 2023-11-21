@@ -33,7 +33,7 @@ pip install git+https://github.com/openai/CLIP.git
 ```
 
 ```bash
-pip install git+https://github.com/michelecafagna26/vl-shap.git#egg=semshap
+pip install git+https://github.com/michelecafagna26/vl-shap.git@adding_clipseg#egg=semshap
 ```
 
 ### Download external model
