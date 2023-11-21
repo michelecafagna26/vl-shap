@@ -1,6 +1,4 @@
 # VL-SHAP
-
-
 *Official Repo for the paper: ["Interpreting Vision and Language Generative Models with Semantic Visual Priors"](https://arxiv.org/abs/2304.14986).*
 
 ---
@@ -10,11 +8,20 @@ Explain VL generative models using  **KernelSHAP** **sentence-based** visual exp
 src="https://www.frontiersin.org/files/Articles/1220476/frai-06-1220476-HTML/image_m/frai-06-1220476-g003.jpg">
 
 ### Overview
- 
 
-- **🗃️ Repository:** [github.com/michelecafagna26/vl-shap](https://github.com/michelecafagna26/vl-shap)
+- **🗃️ Repository:** [github.com/michelecafagna26/vl-shap](hhttps://github.com/michelecafagna26/vl-shap/tree/adding_clipseg)
 - **📜 Paper:** [Interpreting Vision and Language Generative Models with Semantic Visual Priors](https://arxiv.org/abs/2304.14986)
 - **🖊️ Contact:** michele.cafagna@um.edu.mt
+
+### Note⚠️
+In this branch we generate semantic masks using **Clipseg** instead of **STEGO**, as originally presented in the paper.
+Stego has strict ```python``` and ```pytorch``` requirements that may be limiting for potential users.
+**Clipseg**  is easier to install and can be used with the most recent dependencies.
+
+With **Clipseg** is possible to control the semantic masks to use through textual prompts. This is not possible with STEGO which is unsupervised.
+However,  the grain of the masks generated with Clipseg is coarser, then STEGO.
+
+If you want to use the original  implementation presented in the paper with STEGO check out [this branch](https://github.com/michelecafagna26/vl-shap/tree/main)
 
 
 ### Requirements
