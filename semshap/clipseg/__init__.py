@@ -1,0 +1,1 @@
+from semshap.clipseg.clipseg import CLIPDensePredT

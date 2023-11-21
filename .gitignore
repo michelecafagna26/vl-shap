@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# pytorch models
+*.pth
+
 #IDE
 .idea
 
@@ -116,6 +119,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+*.venv2
 
 # Spyder project settings
 .spyderproject
