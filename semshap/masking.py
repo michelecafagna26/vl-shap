@@ -99,7 +99,13 @@ def generate_dff_masks(visual_embeds, k=10, img_size=(256, 256), mask_th=20, ran
         heatmap = torch.tensor(W[..., i]).unsqueeze(0)
 
         # upsample to the image size
-        heatmap = transforms.Resize((img_size[1], img_size[0]), interpolation=Image.BICUBIC)(heatmap)
+        try:
+            # torchvision==0.16
+            heatmap = transforms.Resize((img_size[1], img_size[0]), interpolation=Image.BICUBIC)(heatmap)
+        except ValueError:
+            # torchvision==0.12
+            heatmap = transforms.Resize((img_size[1], img_size[0]), interpolation=Image.BICUBIC)(
+                heatmap.unsqueeze(0)).squeeze(0)
 
         heatmap = (heatmap[0].numpy() * 255)
         # set the boundaries
@@ -207,7 +213,13 @@ def generate_segmentation_masks(img, prompts, img_size=(256, 256), mask_th=100,
         heatmap = torch.sigmoid(preds[i][0])
 
         # upsample to the image size
-        heatmap = transforms.Resize((img_size[1], img_size[0]), interpolation=Image.BICUBIC)(heatmap)
+        try:
+            # torchvision==0.16
+            heatmap = transforms.Resize((img_size[1], img_size[0]), interpolation=Image.BICUBIC)(heatmap)
+        except ValueError:
+            # torchvision==0.12
+            heatmap = transforms.Resize((img_size[1], img_size[0]), interpolation=Image.BICUBIC)(
+                heatmap.unsqueeze(0)).squeeze(0)
 
         heatmap = (heatmap.numpy() * 255)
 
@@ -255,7 +267,7 @@ def genenerate_vit_masks(visual_embeds, img_size, k=10, mask_th=150, random_stat
         return {idx: np.where(m[0, :] is True)[0].tolist() for idx, m in enumerate(masks)}
 
     # add together a set of masks
-    def compose_mask(masks):
+    def compose_mask(masks)
         out_mask = np.zeros(masks[0].shape, dtype=np.bool_)
         for m in masks:
             out_mask += m
