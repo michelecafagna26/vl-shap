@@ -264,10 +264,10 @@ def genenerate_vit_masks(visual_embeds, img_size, k=10, mask_th=150, random_stat
 
     # compute the feature index in the grid
     def extract_feature_idx(masks):
-        return {idx: np.where(m[0, :] is True)[0].tolist() for idx, m in enumerate(masks)}
+        return {idx: np.where(m[0, :] == True)[0].tolist() for idx, m in enumerate(masks)}
 
     # add together a set of masks
-    def compose_mask(masks)
+    def compose_mask(masks):
         out_mask = np.zeros(masks[0].shape, dtype=np.bool_)
         for m in masks:
             out_mask += m
