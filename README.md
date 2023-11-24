@@ -34,23 +34,8 @@ torchvision <=0.14
 
 ### Installation
 
-We need to install Clipseg's depenency to generate prompt-based semantic masks:
-```bash
-pip install git+https://github.com/openai/CLIP.git
-```
-
 ```bash
 pip install git+https://github.com/michelecafagna26/vl-shap.git@adding_clipseg#egg=semshap
-```
-
-### Download external model
-
-save the models in the ```semshap/clipseg/model``` folder or pass the path to the model to the ```generate_segmentation_masks```
-method setting ```model_path="path/to/model"```. Use **```rd64-uni.pth```**.
-
-```bash
-wget https://owncloud.gwdg.de/index.php/s/ioHbRzFx6th32hn/download -O weights.zip
-unzip -d . -j weights.zip
 ```
 
 ### Example: Explain OFA Visual Question Answering Model
