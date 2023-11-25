@@ -167,7 +167,7 @@ def generate_superpixel_masks(img_size, grid_shape=(4, 4)):
 
 
 def generate_segmentation_masks(img, prompts, img_size=(256, 256), mask_th=100,
-                           return_heatmaps=False, model_path='./semshap/clipseg/model/rd64-uni.pth', device=None):
+                           return_heatmaps=False, model_path=Path(Path(__file__).parent, 'clipseg/model/rd64-uni.pth'), device=None):
     """
     Inputs:
         img: torch.Tensor with shape (kernel_h, kernel_w, embed_dim)
