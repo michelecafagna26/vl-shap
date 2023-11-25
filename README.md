@@ -14,6 +14,7 @@ src="https://www.frontiersin.org/files/Articles/1220476/frai-06-1220476-HTML/ima
 
 - **🗃️ Repository:** [github.com/michelecafagna26/vl-shap](https://github.com/michelecafagna26/vl-shap)
 - **📜 Paper:** [Interpreting Vision and Language Generative Models with Semantic Visual Priors](https://arxiv.org/abs/2304.14986)
+- **🚀 Gradio Demo:** [michelecafagna26/vl-shap-demo](https://github.com/michelecafagna26/vl-shap-demo)
 - **🖊️ Contact:** michele.cafagna@um.edu.mt
 
 ### UPDATES 🔥
