@@ -17,6 +17,7 @@ src="https://www.frontiersin.org/files/Articles/1220476/frai-06-1220476-HTML/ima
 - **🖊️ Contact:** michele.cafagna@um.edu.mt
 
 ### UPDATES 🔥
+- **25/11/2023** You can try VL-SHAP with the Gradio Demo 🎮 here:[michelecafagna26/vl-shap-demo](https://github.com/michelecafagna26/vl-shap-demo)
 - **21/11/2023** **If you have trouble installing STEGO**, you can check out this branch [vl-shap/adding_clipseg](https://github.com/michelecafagna26/vl-shap/tree/adding_clipseg). Here we replace the STEGO model with [**Clipseg**](https://github.com/timojl/clipseg) semantic segmentation model. Clipseg is compatible with the latest python and pytorch library and is easier to install. Moreover, you can control the semantic masks through textual prompts!🚀
 
 ### Requirements
